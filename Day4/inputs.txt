@@ -1,5 +1,3 @@
-
-
 byr:2010 pid:#1bb4d8 eyr:2021 hgt:186cm iyr:2020 ecl:grt
 
 pid:937877382 eyr:2029
