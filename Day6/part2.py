@@ -7,17 +7,16 @@ for i in inputs_in_file:
     if len(inputs_in_file):
         string = ''.join(inputs_in_file[: inputs_in_file.index('\n')])
 
-        string = string.replace('\n', '')
-        # print(string)
+        string = string.replace('\n', ' ').split()
+        first = set(string[0])
 
-        ans = ""
-        for i in string:
-            if i in ans:
-                pass
-            else:
-                ans = ans+i
+        def se(first, i):
+            return first & i
 
-        count += len(ans)
+        for i in string[1:]:
+            first = se(first, set(i))
+
+        count += len(first)
 
         inputs_in_file = inputs_in_file[inputs_in_file.index('\n') + 1:]
 
