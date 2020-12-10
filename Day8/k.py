@@ -1,5 +1,10 @@
-dic = {
-    1: ['kris', 'sam', 99],
-    2: ['cool', 'pi', 363699]
-}
-print(1 in dic.values())
+x = 'krishna'
+
+
+def k():
+    for i in x:
+        if i == 's':
+            break
+
+
+print(k())

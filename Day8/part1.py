@@ -9,12 +9,6 @@ for i in inputs_in_file:
     i[1] = int(i[1])
     li.append(i)
 
-for i in li:
-
-    if i[0] == 'nop':
-        i[0] = 'jmp'
-        i[1] = 1
-
 dic = dict()
 n = 0
 instructions = []
@@ -23,17 +17,21 @@ for i in li:
     dic.update({n: i})
     n += 1
 
+# x is the current index of the list li
 x = 0
 
 while True:
     if dic[x][0] == 'acc':
+        if x in instructions:
+            break
+
         acc += dic[x][1]
         instructions.append(x)
         x += 1
-    else:
-        x = dic[x][1] + x
-        if x in instructions:
-            break
-        instructions.append(x)
 
-print(instructions)
+    elif dic[x][0] == 'jmp':
+        x = dic[x][1] + x
+    else:
+        x += 1
+
+print(acc)
